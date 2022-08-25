@@ -1,0 +1,42 @@
+
+
+.navBar{
+    display: flex;
+    height: 50px;
+    padding: 8px;
+    margin: 10px;
+    margin-left: 4px;
+    justify-content: space-between;
+
+    .logoContainer{
+        display: flex;
+        
+        gap: 10px;
+        margin: 8px;
+        cursor: pointer;
+        
+        .logo{
+            display: flex;
+            width: 100%;
+        }
+
+        h1{
+            color: white;
+        }
+    }
+}
+
+.sideBarContainer{
+    margin: 20px;
+    width: 30%;
+    
+}
+.sideBar{
+    background-color: #191B1F;
+    color: white;
+}
+
+.appContainer{
+    display: flex;
+    flex-direction: row;
+}
