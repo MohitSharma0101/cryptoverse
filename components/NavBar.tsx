@@ -6,7 +6,18 @@ import Link from 'next/link'
 
 export default function NavBar() {
   return (
-    <div className={styles.navBar}>
+    <div 
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      padding: "20px",
+      position:'sticky',
+      top: 0,
+      zIndex: 1,
+      backgroundColor:"#191B1F",
+      boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+    }}
+    >
         <Logo/>
     </div>
   )
@@ -15,9 +26,11 @@ export default function NavBar() {
 function Logo(){
     return (
     <Link href="/">
-        <div className={styles.logoContainer}>
-        <Avatar src = {`./logo.svg`} size="large" />
-            <h1>Cryptoverse</h1>
+        <div style={{
+          display: 'flex', alignItems: 'center' ,
+        }}>
+          <Avatar src = {`./logo.svg`} size="large" />
+          <Typography.Title level={3} style={{color:"white",marginLeft:"10px",textAlign:"center"}}>Cryptoverse</Typography.Title>
         </div>
     </Link>
     )

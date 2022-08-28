@@ -1,44 +1,60 @@
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu } from 'antd';
+
+import {  Layout, Menu, Typography,Grid } from 'antd';
 import React, { useState } from 'react';
 import styles from '../styles/Components.module.scss'
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
+import {GlobalStats , Top10Crypto , News} from './';
 
 const { Header, Content, Footer, Sider } = Layout;
+const { Title } = Typography;
+const { useBreakpoint } = Grid;
 
-type MenuItem = Required<MenuProps>['items'][number];
 
 export default function Base() {
-
+  const {md} = useBreakpoint();
   const items = [
     { label: 'Home', key: 'item-1', icon: <HomeOutlined /> }, 
     { label: 'Crypto', key: 'item-2', icon: <FundOutlined /> },
-    { label: 'Exchanges', key: 'item-3', icon: <FundOutlined /> }, 
-    { label: 'News', key: 'item-4', icon: <FundOutlined /> }, 
+    { label: 'Exchanges', key: 'item-3', icon: <MoneyCollectOutlined /> }, 
+    { label: 'News', key: 'item-4', icon: <BulbOutlined/> }, 
   ];
   const [collapsed, setCollapsed] = useState(false);
   return (
-    <Layout  style={{ minHeight: '100vh', backgroundColor: 'white'}}>
-      
-      <Sider className={styles.sideBar} collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
-        <div className="logo" />
-        <Menu className={styles.sideBar} defaultSelectedKeys={['1']} mode="inline" items={items} />
-      </Sider>
-      <Layout  className="site-layout">
-        <Content className = {styles.content}style={{ margin: '0 16px' }}>
-          <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            Bill is a cat.
+    <Layout className={styles.appContainer} style={{ minHeight: '100vh', backgroundColor: 'black'}}>
+      {
+        (md)
+        ?
+        <Sider 
+  
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          bottom: 0,
+          zIndex:1,
+        }}
+        
+        collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
+            <Menu className={styles.sideBar} defaultSelectedKeys={['1']} mode="inline" items={items} />
+        </Sider>
+      :<></>
+      }
+ 
+      <Layout  className={styles.content}>
+        <Content>
+          <div  style={{ padding: 24, minHeight: 360 }}>
+            <GlobalStats />
+            <Top10Crypto count={10}/>
+            <News />
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Cryptoverse ©2022 Created by Mohit Sharma</Footer>
+        <Footer style={{ backgroundColor: 'transparent' ,color: 'white', textAlign: 'center' }}>Cryptoverse ©2022 Created by Mohit Sharma</Footer>
       </Layout>
     </Layout>
   )
 }
+
+
+
