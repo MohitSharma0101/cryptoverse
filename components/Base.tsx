@@ -1,11 +1,10 @@
-import { Layout, Menu, Typography, Grid } from 'antd';
+import { Layout, Menu, Grid } from 'antd';
 import React, { useState } from 'react';
 import styles from '../styles/Components.module.scss'
 import { HomeOutlined, MoneyCollectOutlined, BulbOutlined, FundOutlined } from '@ant-design/icons';
 import { GlobalStats, Top10Crypto, News } from './';
 
-const { Header, Content, Footer, Sider } = Layout;
-const { Title } = Typography;
+const { Content, Footer, Sider } = Layout;
 const { useBreakpoint } = Grid;
 
 
