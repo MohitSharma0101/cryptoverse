@@ -4,7 +4,7 @@ import GlobalStats from './GlobalStats'
 export default function Main() {
   return (
     <div>
-        <GlobalStats />
+      <GlobalStats />
     </div>
   )
 }

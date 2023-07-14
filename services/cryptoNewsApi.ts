@@ -16,7 +16,7 @@ export const newsApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl }),
     endpoints: builder => ({
         getNews : builder.query({
-            query: (q) => createRequest(`/search?q=${q}`)
+            query: ({q,count}) => createRequest(`/search?q=${q}&count=${count}`)
         })
     })
 })

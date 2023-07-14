@@ -75,7 +75,9 @@ export function Crypto(p:{coin:coinType,loading:boolean}) {
                 <Typography.Title level={lvl} style={{color:"white",marginBottom: "0"}}> 
                     {`${coin.rank}. ${coin.name}`} 
                 </Typography.Title>
-                <Text style={{color:"white"}}> {coin.symbol} </Text>
+                <Text style={{
+                    color:"white", 
+                    }}> {coin.symbol} </Text>
             </Col>
             <Col flex={2}>
                 <Typography.Title level={lvl} style={{color:"#39FCAA"}}> 

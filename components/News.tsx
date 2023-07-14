@@ -1,6 +1,6 @@
-import { Avatar, Card, Col, Row, Typography } from 'antd'
+import { Avatar, Card, Col, Row, Typography,Button } from 'antd'
 import moment from 'moment'
-import React from 'react'
+import React, { useState } from 'react'
 import { useGetNewsQuery } from '../services/cryptoNewsApi'
 import {Title} from './'
  
@@ -28,13 +28,24 @@ type Article = {
 }
 
 export default function News() {
-  const { data, isLoading } = useGetNewsQuery("Crypto");
+  const [pageCount,setpageCount] = useState(20);
+  const param = {
+    q: "crypto",
+    count: pageCount
+  }
+  const { data, isLoading } = useGetNewsQuery(param);
 
   const news = data?.value
   if(isLoading) return <></>
   return (
     <>
      <Title text = "News" />
+     <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+     }}>
      <Row gutter={[12,16]}>
       {
       news.map((article:Article) =>(
@@ -43,8 +54,12 @@ export default function News() {
         </Col>
        ))
      }
-   
      </Row>
+     <Button type='primary' style={{margin:"20px 0"}} onClick={
+                () => {setpageCount(pageCount + 10)}
+            } loading={isLoading}> Show More </Button>
+     </div>
+     
     </>
    
   )
