@@ -10,6 +10,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Cryptoverse</title>
         <meta name="description" content="Get Top Crypto Currencies Price and News." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={{ padding: 24, minHeight: 360 }}>

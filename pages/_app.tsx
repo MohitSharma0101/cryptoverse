@@ -5,12 +5,13 @@ import 'antd/dist/antd.css';
 import { store } from '../app/store'
 import { Provider } from 'react-redux'
 import { useState } from 'react';
-import { Layout, Menu, Typography, Avatar } from 'antd';
-import { HomeOutlined, BulbOutlined, FundOutlined } from '@ant-design/icons';
+import { Layout, Menu, Typography, Avatar, Button, Grid, Popover } from 'antd';
+import { HomeOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link'
 import Image from 'next/image';
 
 const { Header, Content, Footer } = Layout;
+const { useBreakpoint } = Grid;
 
 type Label = {
   name: string, link: string
@@ -31,10 +32,14 @@ const items = [
 ];
 
 function Minimal({ Component, pageProps }: AppProps) {
+  const [openMenu, setOpenMenu] = useState(false);
+
   const [current, setCurrent] = useState('mail');
   const onClick: MenuProps['onClick'] = e => {
     setCurrent(e.key);
+    setOpenMenu(false);
   };
+  const { md } = useBreakpoint();
 
   return (
     <div style={{ backgroundColor: '#191B1F' }}>
@@ -43,6 +48,7 @@ function Minimal({ Component, pageProps }: AppProps) {
         <Header style={{
           display: 'flex',
           justifyContent: 'space-between',
+          alignItems: 'center',
           position: 'sticky',
           top: 0,
           zIndex: 1,
@@ -50,17 +56,44 @@ function Minimal({ Component, pageProps }: AppProps) {
           backgroundColor: '#191B1F'
         }}>
           <Logo />
+          {
+            (!md) ?
+              <Popover
+                placement='bottom'
+                color='#21242c'
+                content={
+                  <Menu
+                    onClick={onClick}
+                    style={{ backgroundColor: '#21242c' }}
+                    theme="dark"
+                    mode="inline"
+                    selectedKeys={[current]}
+                    defaultSelectedKeys={['item-1']}
+                    items={items} />
+                }
+                trigger="click"
+                visible={openMenu}
+                onVisibleChange={() => {
+                  setOpenMenu(!openMenu)
+                }}
+              >
+                <Button type="primary">
+                  <MenuOutlined />
+                </Button>
+              </Popover>
+              :
+              <Menu
+                onClick={onClick}
+                style={{ backgroundColor: '#191B1F' }}
+                theme="dark"
+                mode="horizontal"
+                selectedKeys={[current]}
+                defaultSelectedKeys={['item-1']}
+                items={items} />
+          }
 
-          <Menu
-            onClick={onClick}
-            style={{ backgroundColor: '#191B1F' }}
-            theme="dark"
-            mode="horizontal"
-            selectedKeys={[current]}
-            defaultSelectedKeys={['item-1']}
-            items={items} />
         </Header>
-        <Content className="site-layout" style={{ padding: '0 50px' }}>
+        <Content className="site-layout" style={{ padding: `0 ${(md)?'50px' : '0'}` }}>
           <Provider store={store}>
             <Component {...pageProps} />
           </Provider>
