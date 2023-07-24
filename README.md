@@ -1,34 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Cryptoverse](public/logo.svg)
+# Cryptoverse
 
-## Getting Started
+Cryptoverse is a Next.js web application that provides real-time information about the top cryptocurrencies and up-to-date news from the world of cryptocurrencies. Whether you are a seasoned crypto enthusiast or just starting your journey into the exciting world of digital currencies, Cryptoverse offers a user-friendly interface to keep you informed.
 
-First, run the development server:
+Check out the live application: [Here](https://cryptoverse-ui.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Next.js
+- TypeScript
+- Ant Design
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Features
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- Real-time data: Cryptoverse leverages the CoinRanking API to display the latest information about the top cryptocurrencies, ensuring that you always have up-to-date data at your fingertips.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Crypto Currencies News: Stay informed about the latest developments and news in the cryptocurrency space with the Bing Search API integration, which provides real-time news related to cryptocurrencies.
 
-## Learn More
+## Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+![Screenshot 1](Screenshots/Cryptoverse-1.png)
+![Screenshot 2](Screenshots/Cryptoverse-2.png)
+![Screenshot 3](Screenshots/Cryptoverse-3.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation and Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository: `git clone https://github.com/your-username/cryptoverse.git`
+2. Navigate to the project directory: `cd cryptoverse`
+3. Install the dependencies: `npm install`
+4. Run the development server: `npm run dev`
+5. Open your web browser and visit: `http://localhost:3000`
 
-## Deploy on Vercel
+## Contribution
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions to Cryptoverse are welcome and encouraged. If you find a bug or want to add a new feature, please open an issue or submit a pull request.
