@@ -36,7 +36,7 @@ export default function News() {
   const { data, isLoading } = useGetNewsQuery(param);
 
   const news = data?.value
-  if (isLoading) return (<></>);
+  if (isLoading || !news) return (<></>);
   return (
     <>
       <Title text="News" />
@@ -48,7 +48,7 @@ export default function News() {
       }}>
         <Row gutter={[12, 16]}>
           {
-            news.map((article: Article) => (
+            news?.map((article: Article) => (
               <Col xs={24} sm={12} lg={8} key={article.name}>
                 <NewsCard {...article} />
               </Col>

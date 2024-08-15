@@ -6,7 +6,7 @@ import { store } from '../app/store'
 import { Provider } from 'react-redux'
 import { useState } from 'react';
 import { Layout, Menu, Typography, Avatar, Button, Grid, Popover } from 'antd';
-import { HomeOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
+import { HomeOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link'
 import Image from 'next/image';
 
@@ -28,7 +28,7 @@ function GetLabel({ name, link }: Label) {
 const items = [
   { label: (<GetLabel name={"Home"} link={"/"} />), key: 'item-1', icon: <HomeOutlined /> },
   { label: (<GetLabel name={"Crypto"} link={"/crypto"} />), key: 'item-2', icon: <FundOutlined /> },
-  { label: (<GetLabel name={"News"} link={"/news"} />), key: 'item-4', icon: <BulbOutlined /> },
+  // { label: (<GetLabel name={"News"} link={"/news"} />), key: 'item-4', icon: <BulbOutlined /> },
 ];
 
 function Minimal({ Component, pageProps }: AppProps) {
@@ -99,7 +99,7 @@ function Minimal({ Component, pageProps }: AppProps) {
           </Provider>
         </Content>
         <Footer style={{ backgroundColor: 'transparent', color: 'white', textAlign: 'center' }}>
-          Cryptoverse ©2022 Created by Mohit Sharma
+          Cryptoverse ©2024 Developed by Mohit Sharma
         </Footer>
       </Layout>
     </div>
